@@ -23,5 +23,9 @@ describe('DockingStation', function () {
       station.dockBike(bike);
       expect(station.bike).toEqual(bike);
     });
+
+    it('shows the user the bike that has been docked', function() {
+      expect(station.dockBike(bike)).toEqual(bike);
+    });
   });
 });
