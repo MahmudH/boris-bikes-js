@@ -12,6 +12,11 @@ describe('DockingStation', function () {
       station.dockBike(bike);
       expect(station.releaseBike()).toEqual(bike);
     });
+
+    it('does not release a bike if there a no bikes availiable', function() {
+      //releaseBike = function() { station.releaseBike() };
+      expect( function () { station.releaseBike() } ).toThrow(new Error (station.noBikeError));
+    });
   });
 
   describe('working bike', function() {
@@ -26,6 +31,11 @@ describe('DockingStation', function () {
 
     it('shows the user the bike that has been docked', function() {
       expect(station.dockBike(bike)).toEqual(bike);
+    });
+
+    it('shows an error when the capacity of bikes is reached', function() {
+      station.dockBike(bike);
+      expect(function () { station.dockBike(bike); }).toThrow(new Error (station.stationFullError));
     });
   });
 });
