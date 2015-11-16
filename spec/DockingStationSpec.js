@@ -9,11 +9,19 @@ describe('DockingStation', function () {
 
   describe('release bike', function () {
     it('docking station releases a bike', function () {
+      station.dockBike(bike);
       expect(station.releaseBike()).toEqual(bike);
     });
   });
 
   describe('working bike', function() {
 
+  });
+
+  describe('#dock', function(){
+    it('is docks a bike', function() {
+      station.dockBike(bike);
+      expect(station.bike).toEqual(bike);
+    });
   });
 });
